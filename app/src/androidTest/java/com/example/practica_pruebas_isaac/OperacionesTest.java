@@ -2,19 +2,30 @@ package com.example.practica_pruebas_isaac;
 
 import junit.framework.TestCase;
 
-
+/**
+ * Clase donde realizamos las pruebas de los test internos
+ */
 public class OperacionesTest extends TestCase {
     private Operaciones operaciones;
 
+    /**
+     * Creamos una nuva clase de Operaciones para poder comprobar que los datos son correctos
+     * @throws Exception por si no encuentra la clase
+     */
     public void setUp() throws Exception {
         operaciones= new Operaciones();
     }
 
-
+    /**
+     * Hacemos un test de carga para ver que no de fallo al cargar la clase
+     */
     public void testCarga(){
         assertNotNull(operaciones);
     }
 
+    /**
+     * Realizamos los test de pruba de Grados a Farengeing de diferentes tipos
+     */
     public void testCAF1() {
         assertEquals("32.0",operaciones.CaF("0"));
     }
@@ -31,9 +42,12 @@ public class OperacionesTest extends TestCase {
         assertEquals("46.4",operaciones.CaF("8"));
     }
     public void testCAF6(){
-        assertEquals("-1",operaciones.CaF("0"));
+        assertEquals("error",operaciones.CaF("si"));
     }
 
+    /**
+     * Realizamos los test de pruba de Farengeing a Grados de diferentes tipos
+     */
     public void testFAC1() {
         assertEquals("0.0",operaciones.FaC("32"));
     }
@@ -50,9 +64,12 @@ public class OperacionesTest extends TestCase {
         assertEquals("8.22222222222222",operaciones.FaC("46.8"));
     }
     public void testFAC6(){
-        assertEquals("-1",operaciones.FaC("0"));
+        assertEquals("error",operaciones.FaC("adios"));
     }
 
+    /**
+     * Realizamos las pruebas para pasar de Millas a Kilómetros
+     */
     public void testMaKms1() {
         assertEquals("1.0",operaciones.mAKms("1.60934"));
 
@@ -75,9 +92,12 @@ public class OperacionesTest extends TestCase {
 
     }
     public void testMaKms6(){
-        assertEquals("-1",operaciones.mAKms("0"));
+        assertEquals("error",operaciones.mAKms("hola"));
     }
 
+    /**
+     * Realizamos los test de pruebas para pasar de Kilómetros a Millas
+     */
     public void testKmsaM1(){
         assertEquals("1.60934",operaciones.kmsAm("1"));
 
@@ -98,7 +118,7 @@ public class OperacionesTest extends TestCase {
 
     }
     public void testKmsaM6(){
-        assertEquals("-1",operaciones.kmsAm("0"));
+        assertEquals("error",operaciones.kmsAm("patata"));
     }
 
 
